@@ -8,6 +8,8 @@ To make a slider you need to attach `w-slider.js` and pass `id="w-slider"`
 ```
 
 Pass `multiple` attribute to slide the whole screen of cards. Otherwise it will slide each card.
+Pass `infinite` attribute to make sliding infinite.
+
 The `style` element is inserted before the first `link` tag, so you can restyle buttons.
 Here are the class names:
 * `.w-slider__button-leaf` - Basic right/left button style.
@@ -18,5 +20,3 @@ Here are the class names:
 
 ## Planned to do
 * Add sliding with mouse.
-* Add attribute `infinite` that makes sliding infinite.
-* Animate end-of-slider when not `infinite`.
