@@ -30,6 +30,7 @@ let cardsSummary = cards.length
 let cardsOnScreen = 0
 let screens = []
 let initialLeft = 0
+let pause = false
 
 
 
@@ -68,6 +69,7 @@ function handleButtonClick(event) {
 }
 
 function moveCards(direction) {
+    if (pause) return 
     if (!isInfinite && direction === 'left' && cards[0].getAttribute('within') === 'true') return
     if (!isInfinite && direction === 'right' && cards[cards.length - 1].getAttribute('within') === 'true') return
 
@@ -88,6 +90,8 @@ function moveCards(direction) {
     cards.forEach(card => {
         card.style.left = `${initialLeft}px`
     })
+
+    pause = true
 
     let markTimeout = setTimeout(markCardsOut, 400)
 }
@@ -213,4 +217,5 @@ function markCardsOut() {
         card.setAttribute('within', 'true')
         if (card.offsetLeft < 0 || card.offsetLeft + card.offsetWidth > slider.offsetWidth) card.setAttribute('within', 'false')
     })
+    pause = false
 }
